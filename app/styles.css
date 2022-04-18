@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'GTWalsheimPro';
+    src: url('https://d3requdwnyz98t.cloudfront.net/assets/GTWalsheimPro/GTWalsheimPro-Regular-ba8d1cf5a1ba4e30f43beb5dfa124156c2e3eb639b5f937f19b5029a1c4b2bac.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@layer base {
+    body {
+        @apply text-gray-800 dark:text-white;
+    }
+
+    a {
+        @apply text-blue-700;
+    }
+
+    a:hover {
+        @apply text-black dark:text-white;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.2em 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1em;
+        background-color: #000;
+        opacity: 1;
+        transition: opacity 300ms, transform 300ms;
+        transform: translate3d(-100%, 0, 0);
+    }
+      
+    nav a:hover::after,
+    nav a:focus::after,
+    nav a.active::after {
+        opacity: 1;
+        transform: translate3d(0, 0.2em, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    img {
+        @apply p-2 border border-gray-300;
+    }
+
+    main {
+        @apply text-lg;
+    }
+
+    main ul,
+    main p,
+    main small {
+        @apply block pb-8;
+    }
+
+    main h1 {
+        @apply py-12 text-center;
+    }
+
+    /** Set margin bottom but not for headers in sections (e.g. Experience page) */
+    main div :not(section) h2 {
+        @apply mb-8;
+    }
+
+    main small {
+        @apply text-sm text-gray-500;
+    }
+
+    main ul {
+        @apply list-disc list-inside;
+    }
+}

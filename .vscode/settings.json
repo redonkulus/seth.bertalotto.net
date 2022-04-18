@@ -1,0 +1,10 @@
+{
+    "css.validate": false,
+    "cSpell.enabled": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+}
