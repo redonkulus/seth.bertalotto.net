@@ -40,7 +40,7 @@ export default function App() {
                 <Meta />
                 <Links />
             </head>
-            <body className="p-5">
+            <body>
                 <Header />
                 <main>
                     <Outlet />

@@ -47,7 +47,7 @@ export default function Projects() {
                         <img className="basis-1/3 mr-4 hidden lg:block" alt={`${name} Logo`} src={image} width="300" />
 
                         <div className="lg:basis-2/3">
-                            <h2>
+                            <h2 className="mb-0">
                                 <a href={link} target="_blank">
                                     {name}
                                 </a>
