@@ -48,7 +48,7 @@ export default function Projects() {
 
                         <div className="lg:basis-2/3">
                             <h2>
-                                <a href={link}>{name}</a>
+                                <a href={link} target="_blank">{name}</a>
                             </h2>
 
                             <p className="text-sm pb-4 text-gray-500">
