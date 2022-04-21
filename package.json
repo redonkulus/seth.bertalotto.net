@@ -50,7 +50,16 @@
         "node": "14.x"
     },
     "sideEffects": false,
+    "eslintConfig": {
+        "env": {
+            "es2022": true
+        },
+        "parserOptions": {
+            "sourceType": "module"
+        }
+    },
     "eslintIgnore": [
+        "/api",
         "/node_modules",
         "/build",
         "/public/build"
