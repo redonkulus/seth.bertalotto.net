@@ -1,7 +1,7 @@
-import { Links, LinksFunction, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
 import Header from '~/components/header';
 import Footer from '~/components/footer';
-import type { MetaFunction } from 'remix';
+import type { LinksFunction, MetaFunction } from 'remix';
 import { META_NAME, META_POSITION, META_TITLE } from '~/libs/const';
 import styles from '../build/tailwind.css';
 

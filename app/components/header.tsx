@@ -26,7 +26,7 @@ export default function Header() {
                         {links.map((link) => {
                             const url = link.replace(' ', '-').toLocaleLowerCase();
                             const classes = classnames('font-bold', {
-                                'active': url === routePath,
+                                active: url === routePath,
                             });
                             return (
                                 <li key={link}>

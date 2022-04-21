@@ -48,6 +48,7 @@ export default function Projects() {
 
                         <div className="lg:basis-2/3">
                             <h2 className="mb-0">
+                                {/* eslint-disable-next-line react/jsx-no-target-blank */}
                                 <a href={link} target="_blank">
                                     {name}
                                 </a>
