@@ -2,7 +2,7 @@ import { useLoaderData } from 'remix';
 import type { LoaderFunction } from 'remix';
 import { getPost } from '~/models/post.server';
 import invariant from 'tiny-invariant';
-import { Comfortable } from '~/components/layouts';
+import { Comfortable } from '~/components/Layouts';
 
 export const loader: LoaderFunction = async ({ params }) => {
     invariant(params.slug, 'expected params.slug');

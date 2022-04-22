@@ -56,8 +56,18 @@
         "env": {
             "es2022": true
         },
+        "extends": [
+            "@remix-run/eslint-config",
+            "@remix-run/eslint-config/node"
+        ],
         "parserOptions": {
             "sourceType": "module"
+        },
+        "plugins": [
+            "prettier"
+        ],
+        "rules": {
+            "prettier/prettier": "error"
         }
     },
     "eslintIgnore": [

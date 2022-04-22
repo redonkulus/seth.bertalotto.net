@@ -1,9 +1,11 @@
-import { Links, LinksFunction, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
-import Header from '~/components/header';
-import Footer from '~/components/footer';
-import type { MetaFunction } from 'remix';
-import { META_NAME, META_POSITION, META_TITLE } from '~/libs/const';
+import { useEffect } from 'react';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from 'remix';
+import Header from '~/components/Header';
+import Footer from '~/components/Footer';
+import type { LinksFunction, MetaFunction } from 'remix';
+import { META_NAME, META_POSITION, META_TITLE, Theme } from '~/libs/const';
 import styles from '../build/tailwind.css';
+import { setThemeCookie, ThemeProvider } from '~/libs/themeContext';
 
 export const links: LinksFunction = () => {
     return [
@@ -33,23 +35,50 @@ export const meta: MetaFunction = () => ({
     viewport: 'width=device-width,initial-scale=1',
 });
 
+export async function loader({ request }: any) {
+    const cookie = request.headers.get('Cookie');
+    if (cookie) {
+        const [, colorSchemeValue] = cookie.split('=');
+        return {
+            colorScheme: colorSchemeValue,
+        };
+    }
+    return {};
+}
+
 export default function App() {
+    const { colorScheme } = useLoaderData();
+    useEffect(() => {
+        // If the user has not explicitly chosen a color mode, set it based off of "prefers-color-scheme"
+        // on subsequent requests their perferred scheme will be chosen
+        // once browsers implemented color-scheme hints, we can remove this logic
+        if (!window.document.cookie) {
+            const mql = window.matchMedia('(prefers-color-scheme: dark)');
+            const hasMediaQueryPreference = typeof mql.matches === 'boolean';
+            if (hasMediaQueryPreference) {
+                const colorScheme = mql.matches ? Theme.dark : Theme.light;
+                setThemeCookie(colorScheme);
+            }
+        }
+    }, []);
     return (
-        <html lang="en">
-            <head>
-                <Meta />
-                <Links />
-            </head>
-            <body className="p-5">
-                <Header />
-                <main>
-                    <Outlet />
-                </main>
-                <Footer />
-                <ScrollRestoration />
-                <Scripts />
-                {process.env.NODE_ENV === 'development' && <LiveReload />}
-            </body>
-        </html>
+        <ThemeProvider>
+            <html lang="en" className={colorScheme}>
+                <head>
+                    <Meta />
+                    <Links />
+                </head>
+                <body>
+                    <Header />
+                    <main>
+                        <Outlet />
+                    </main>
+                    <Footer />
+                    <ScrollRestoration />
+                    <Scripts />
+                    {process.env.NODE_ENV === 'development' && <LiveReload />}
+                </body>
+            </html>
+        </ThemeProvider>
     );
 }

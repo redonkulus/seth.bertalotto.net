@@ -1,4 +1,4 @@
-import { Wide } from '~/components/layouts';
+import { Wide } from '~/components/Layouts';
 const projects = [
     {
         desc: 'Easy to use web application to help plan your basketball game lineup.',
@@ -47,7 +47,8 @@ export default function Projects() {
                         <img className="basis-1/3 mr-4 hidden lg:block" alt={`${name} Logo`} src={image} width="300" />
 
                         <div className="lg:basis-2/3">
-                            <h2>
+                            <h2 className="mb-0">
+                                {/* eslint-disable-next-line react/jsx-no-target-blank */}
                                 <a href={link} target="_blank">
                                     {name}
                                 </a>

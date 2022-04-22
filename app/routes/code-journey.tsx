@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Figure from '~/components/figure';
+import Figure from '~/components/Figure';
 import useIntersect from '~/libs/useIntersect';
-import { Wide } from '~/components/layouts';
+import { Wide } from '~/components/Layouts';
 
 const generateId = (text: string) => text.replace(/[^a-z0-9]/gi, '').toLowerCase();
 
@@ -38,15 +38,15 @@ export default function CodeJourney() {
             <h1>🛣️ Code Journey</h1>
 
             <div className="relative lg:max-w-2xl">
-                <ul className="hidden lg:block fixed top-[230px] right-[20%] pb-0 pr-[10px] text-right list-none border-r-[1px] border-black">
+                <ul className="hidden lg:block fixed top-[230px] right-[20%] pb-0 pr-[10px] text-right list-none border-r-[1px] border-black dark:border-white">
                     {Object.keys(headers).map((header) => {
                         const id = generateId(headers[header]);
                         return (
                             <li
                                 key={id}
-                                className="relative py-1 after:bg-black after:rounded-[5px] after:content-[''] after:w-[5px] after:h-[5px] after:absolute after:top-[43%] after:right-[-13px]"
+                                className="relative py-1 after:bg-black after:dark:bg-white after:rounded-[5px] after:content-[''] after:w-[5px] after:h-[5px] after:absolute after:top-[43%] after:right-[-13px]"
                             >
-                                <a href={`#${id}`} className={active === id ? 'text-black' : ''}>
+                                <a href={`#${id}`} className={active === id ? 'text-black dark:text-amber-300' : ''}>
                                     {headers[header]}
                                 </a>
                             </li>
