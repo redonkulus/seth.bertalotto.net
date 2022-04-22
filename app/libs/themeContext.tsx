@@ -7,33 +7,50 @@ type Props = {
 };
 
 type ModeContext = {
-    colorScheme: string;
-    setcolorScheme: (colorScheme: string) => void;
+    theme: string;
+    setTheme: (theme: string) => void;
 };
 
-export const setThemeCookie = (value: string) => {
-    window.document.cookie = `color-scheme=${value}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+const COOKIE_NAME = 'theme';
+
+export const getCookieTheme = (cookie: string) => {
+    if (cookie) {
+        const cookieParts = cookie.split(';');
+        for (let cookiePair of cookieParts) {
+            const [name, value] = cookiePair.split('=');
+            if (name?.trim() === COOKIE_NAME && value) {
+                return {
+                    theme: value,
+                };
+            }
+        }
+    }
+    return {};
+};
+
+export const setCookieTheme = (value: string) => {
+    window.document.cookie = `${COOKIE_NAME}=${value}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
 };
 
 export const ThemeContext: Context<ModeContext> = createContext({} as any);
 
 export const ThemeProvider = ({ children }: Props) => {
-    const [colorScheme, rawSetcolorScheme] = useState('');
+    const [theme, rawSetTheme] = useState('');
 
     useEffect(() => {
         const root = window.document.documentElement;
-        const initialColorValue = root.classList.contains(Theme.dark) ? Theme.dark : Theme.light;
-        rawSetcolorScheme(initialColorValue);
+        const initialThemeValue = root.classList.contains(Theme.dark) ? Theme.dark : Theme.light;
+        rawSetTheme(initialThemeValue);
     }, []);
 
-    const setcolorScheme = (value: string) => {
+    const setTheme = (value: string) => {
         const root = window.document.documentElement;
 
-        // update React color-scheme state
-        rawSetcolorScheme(value);
+        // update React theme state
+        rawSetTheme(value);
 
         // set cookie for server to retrieve later
-        setThemeCookie(value);
+        setCookieTheme(value);
 
         // update class on root element
         if (value === Theme.dark) {
@@ -42,5 +59,5 @@ export const ThemeProvider = ({ children }: Props) => {
             root.classList.replace(Theme.dark, value);
         }
     };
-    return <ThemeContext.Provider value={{ colorScheme, setcolorScheme }}>{children}</ThemeContext.Provider>;
+    return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };

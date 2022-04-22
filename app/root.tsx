@@ -5,7 +5,7 @@ import Footer from '~/components/Footer';
 import type { LinksFunction, MetaFunction } from 'remix';
 import { META_NAME, META_POSITION, META_TITLE, Theme } from '~/libs/const';
 import styles from '../build/tailwind.css';
-import { setThemeCookie, ThemeProvider } from '~/libs/themeContext';
+import { getCookieTheme, setCookieTheme, ThemeProvider } from '~/libs/themeContext';
 
 export const links: LinksFunction = () => {
     return [
@@ -37,33 +37,26 @@ export const meta: MetaFunction = () => ({
 
 export async function loader({ request }: any) {
     const cookie = request.headers.get('Cookie');
-    if (cookie) {
-        const [, colorSchemeValue] = cookie.split('=');
-        return {
-            colorScheme: colorSchemeValue,
-        };
-    }
-    return {};
+    return getCookieTheme(cookie);
 }
 
 export default function App() {
-    const { colorScheme } = useLoaderData();
+    const { theme } = useLoaderData();
     useEffect(() => {
         // If the user has not explicitly chosen a color mode, set it based off of "prefers-color-scheme"
         // on subsequent requests their perferred scheme will be chosen
         // once browsers implemented color-scheme hints, we can remove this logic
-        if (!window.document.cookie) {
+        if (!theme) {
             const mql = window.matchMedia('(prefers-color-scheme: dark)');
-            const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-            if (hasMediaQueryPreference) {
-                const colorScheme = mql.matches ? Theme.dark : Theme.light;
-                setThemeCookie(colorScheme);
+            if (typeof mql.matches === 'boolean') {
+                const theme = mql.matches ? Theme.dark : Theme.light;
+                setCookieTheme(theme);
             }
         }
     }, []);
     return (
         <ThemeProvider>
-            <html lang="en" className={colorScheme}>
+            <html lang="en" className={theme}>
                 <head>
                     <Meta />
                     <Links />

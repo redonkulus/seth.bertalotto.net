@@ -20,21 +20,21 @@ const IconSun = () => (
 );
 
 export default function ThemeToggle() {
-    const { colorScheme, setcolorScheme } = useContext(ThemeContext);
-    if (colorScheme === '') {
+    const { theme, setTheme } = useContext(ThemeContext);
+    if (theme === '') {
         return null;
     }
     return (
-        <label className="cursor-pointer" title={`Toggle ${colorScheme} mode`}>
+        <label className="cursor-pointer" title={`Toggle ${theme} mode`}>
             <input
                 className="hidden"
                 type="checkbox"
-                checked={colorScheme === Theme.dark}
+                checked={theme === Theme.dark}
                 onChange={(ev) => {
-                    setcolorScheme(ev.target.checked ? Theme.dark : Theme.light);
+                    setTheme(ev.target.checked ? Theme.dark : Theme.light);
                 }}
             />{' '}
-            {colorScheme === Theme.dark ? <IconSun /> : <IconMoon />}
+            {theme === Theme.dark ? <IconSun /> : <IconMoon />}
         </label>
     );
 }
