@@ -1,5 +1,5 @@
 import { META_TITLE } from '~/libs/const';
-import { Comfortable } from '~/components/layouts';
+import { Comfortable } from '~/components/Layouts';
 
 export function meta() {
     return { title: `Skills | ${META_TITLE}` };

@@ -2,6 +2,7 @@ import { Link } from 'remix';
 import { useMatches } from '@remix-run/react';
 import classnames from 'classnames';
 import { META_NAME, META_POSITION } from '~/libs/const';
+import ThemeToggle from '~/components/ThemeToggle';
 
 const links = ['Code Journey', 'Experience', 'Open Source', 'Projects', 'Skills'];
 
@@ -12,7 +13,7 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 py-2 bg-white dark:bg-slate-800 z-10">
-            <div className="lg:flex m-auto lg:px-8 lg:max-w-7xl items-baseline">
+            <div className="lg:flex m-auto lg:px-8 lg:max-w-7xl items-center">
                 <div className="lg:text-center mb-4 lg:mb-0">
                     <h1>
                         <Link to="/" className="tracking-tight">
@@ -38,6 +39,7 @@ export default function Header() {
                         })}
                     </ul>
                 </nav>
+                <ThemeToggle />
             </div>
         </header>
     );

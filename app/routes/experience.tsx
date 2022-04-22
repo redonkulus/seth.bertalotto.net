@@ -1,4 +1,4 @@
-import { Comfortable } from '~/components/layouts';
+import { Comfortable } from '~/components/Layouts';
 export default function Experience() {
     return (
         <Comfortable>

@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from 'remix';
 import { getPosts } from '~/models/post.server';
 import type { Post } from '~/models/post.server';
-import { Comfortable } from '~/components/layouts';
+import { Comfortable } from '~/components/Layouts';
 
 export const loader = () => {
     return getPosts();

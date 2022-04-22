@@ -1,4 +1,4 @@
-import { Wide } from '~/components/layouts';
+import { Wide } from '~/components/Layouts';
 const projects = [
     {
         desc: 'Easy to use web application to help plan your basketball game lineup.',

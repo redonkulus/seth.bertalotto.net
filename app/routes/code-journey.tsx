@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Figure from '~/components/figure';
+import Figure from '~/components/Figure';
 import useIntersect from '~/libs/useIntersect';
-import { Wide } from '~/components/layouts';
+import { Wide } from '~/components/Layouts';
 
 const generateId = (text: string) => text.replace(/[^a-z0-9]/gi, '').toLowerCase();
 

@@ -16,18 +16,13 @@ npm run dev
 
 This starts the app in development mode, rebuilding assets on file changes.
 
-## Deployment
+## Technical
 
-First, build your app for production:
+### Dark Mode
 
-```sh
-npm run build
-```
+Users can trigger dark mode by clicking on the toggle button. If they do not set it explicitly,
+then I check the `prefers-color-scheme` browser API and set a cookie based on their preference.
 
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
+On subsequent requests, the server will read this value from the cookie and automatically adjust
+the scheme based on the users preference. The user can always overwrite this by clicking on the toggle
+button, which saves their preference in the same cookie.

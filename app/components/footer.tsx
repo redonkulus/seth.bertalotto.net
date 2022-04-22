@@ -1,4 +1,4 @@
-import { Comfortable } from './layouts';
+import { Comfortable } from './Layouts';
 export default function Footer() {
     return (
         <Comfortable>
