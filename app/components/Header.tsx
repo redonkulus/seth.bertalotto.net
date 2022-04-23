@@ -15,7 +15,7 @@ export default function Header() {
         <header className="sticky top-0 py-2 bg-white dark:bg-slate-800 z-10">
             <div className="lg:flex m-auto lg:px-8 lg:max-w-7xl items-center">
                 <div className="lg:text-center mb-4 lg:mb-0">
-                    <h1>
+                    <h1 className="text-m">
                         <Link to="/" className="tracking-tight">
                             {META_NAME}
                         </Link>

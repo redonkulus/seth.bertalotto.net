@@ -9,7 +9,7 @@ export default function Skills() {
     return (
         <Comfortable>
             <article>
-                <h1>🔨 Skills</h1>
+                <h1>Skills</h1>
                 <p>
                     <strong>JavaScript, expert:</strong> Immensely passionate about JavaScript and related technology:
                     Node.js, React, Web Components, Webpack, etc. Have been developing with TypeScript for many years

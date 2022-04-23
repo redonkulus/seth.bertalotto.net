@@ -37,7 +37,7 @@ const projects = [
 export default function Projects() {
     return (
         <Wide>
-            <h1>🚧 Projects</h1>
+            <h1>Projects</h1>
 
             <p>Apps, utilities and other things I have built and maintained over the years.</p>
 

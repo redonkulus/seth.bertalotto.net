@@ -2,7 +2,7 @@ import { Comfortable } from '~/components/Layouts';
 export default function Experience() {
     return (
         <Comfortable>
-            <h1>🖥️ Experience</h1>
+            <h1>Experience</h1>
 
             <section>
                 <h2>Yahoo &#8211; Web Core Team</h2>

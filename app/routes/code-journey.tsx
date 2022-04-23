@@ -35,10 +35,10 @@ export default function CodeJourney() {
     const [active, setActive] = useState('');
     return (
         <Wide>
-            <h1>🛣️ Code Journey</h1>
+            <h1>Code Journey</h1>
 
             <div className="relative lg:max-w-2xl">
-                <ul className="hidden lg:block fixed top-[230px] right-[20%] pb-0 pr-[10px] text-right list-none border-r-[1px] border-black dark:border-white">
+                <ul className="hidden text-base lg:block fixed top-[230px] right-[20%] pb-0 pr-[10px] text-right list-none border-r-[1px] border-black dark:border-white">
                     {Object.keys(headers).map((header) => {
                         const id = generateId(headers[header]);
                         return (

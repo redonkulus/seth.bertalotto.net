@@ -56,7 +56,7 @@ export default function App() {
     }, []);
     return (
         <ThemeProvider>
-            <html lang="en" className={theme}>
+            <html lang="en" className={`antialiased ${theme}`}>
                 <head>
                     <Meta />
                     <Links />

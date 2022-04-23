@@ -8,6 +8,9 @@ module.exports = {
             fontFamily: {
                 sans: ['GTWalsheimPro', ...defaultTheme.fontFamily.sans],
             },
+            fontSize: {
+                lg: ['19px', '30px'],
+            },
         },
     },
     plugins: [],

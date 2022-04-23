@@ -3,7 +3,7 @@ export default function OpenSource() {
     return (
         <Comfortable>
             <article>
-                <h1>💻 Open Source</h1>
+                <h1>Open Source</h1>
 
                 <p>I actively help maintain the following open source projects on GitHub:</p>
 
