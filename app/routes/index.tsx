@@ -1,5 +1,5 @@
 import { Link } from 'remix';
-import { Comfortable } from '~/components/layouts';
+import { Comfortable } from '~/components/Layouts';
 
 const randomItem = (arr: any) => arr[Math.floor(Math.random() * arr.length)];
 const greetingList = [
