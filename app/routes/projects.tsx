@@ -3,10 +3,10 @@ const projects = [
     {
         desc: 'Easy to use web application to help plan your basketball game lineup.',
         image: '/images/projects/plan-my-lineup.jpg',
-        link: 'http://simplyflashcards.org/',
+        link: 'https://redonkulus.github.io/bball/',
         name: 'Plan My Lineup',
         role: 'Creator',
-        tech: 'html, css, javascript',
+        tech: ['html', 'css', 'javascript'],
     },
     {
         desc: 'Simple web application for English language learners to practice letters, numbers and sight words.',
@@ -14,7 +14,7 @@ const projects = [
         link: 'http://simplyflashcards.org/',
         name: 'Simply Flashcards',
         role: 'Creator',
-        tech: 'html, css, javascript',
+        tech: ['html', 'css', 'javascript'],
     },
     {
         desc: 'Software as a service web application that allows companies to manage their customers and orders online. The website was developed from scratch with high speed performance and scalability in mind. User permission management, location based analytics and advanced employee scheduling application are among the tools built within this system.',
@@ -22,7 +22,7 @@ const projects = [
         link: 'https://customertrackr.com',
         name: 'CustomerTracker',
         role: 'Founder / Chief Technology Officer',
-        tech: 'html, css, javascript, php, mysql, apache',
+        tech: ['html', 'css', 'javascript', 'php', 'mysql', 'apache'],
     },
     {
         desc: 'Owner and day to day maintainer of MIDI Delight Ringtones; free downloadable ringtones for mobile phones. Built the site infrastructure using PHP and MySQL from scratch. Used Front End technologies including semantic HTML, CSS, JavaScript, XML and Search Engine Optimization to provide users with a one stop resource for all things ringtone related. Developed a community based social network to allow users to build profiles and share ringtones with each other.',
@@ -30,7 +30,7 @@ const projects = [
         link: 'https://mididelight.com',
         name: 'MIDI Delight',
         role: 'Founder',
-        tech: 'html, css, javascript, php, mysql, apache',
+        tech: ['html', 'css', 'javascript', 'php', 'mysql', 'apache'],
     },
 ];
 
@@ -62,7 +62,7 @@ export default function Projects() {
 
                             <h4 className="sr-only">Technologies Used</h4>
 
-                            <p className="text-sm text-gray-500">{tech}</p>
+                            <p className="text-sm text-gray-500">{tech.join(', ')}</p>
                         </div>
                     </li>
                 ))}
