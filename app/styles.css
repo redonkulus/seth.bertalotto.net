@@ -76,7 +76,7 @@
     }
 
     main h1 {
-        @apply py-12 text-center font-semibold;
+        @apply my-12 text-center font-semibold;
     }
 
     /** Set margin bottom but not for headers in sections (e.g. Experience page) */
