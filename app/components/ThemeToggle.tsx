@@ -5,7 +5,7 @@ import { Theme } from '~/libs/const';
 const IconMoon = () => (
     <svg
         height="32px"
-        viewBox="0 0 32 32"
+        viewBox="-5 -5 32 32"
         style={{ fill: 'rgb(33, 150, 243)', stroke: 'rgb(33, 150, 243)', strokeWidth: 0 }}
         width="32px"
     >
@@ -19,13 +19,13 @@ const IconSun = () => (
     </svg>
 );
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ className = '' }: { className?: string }) {
     const { theme, setTheme } = useContext(ThemeContext);
     if (theme === '') {
         return null;
     }
     return (
-        <label className="cursor-pointer" title={`Toggle ${theme} mode`}>
+        <label className={`cursor-pointer ${className}`} title={`Toggle ${theme} mode`}>
             <input
                 className="hidden"
                 type="checkbox"

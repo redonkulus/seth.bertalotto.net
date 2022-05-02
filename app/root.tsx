@@ -53,7 +53,7 @@ export default function App() {
                 setCookieTheme(theme);
             }
         }
-    }, []);
+    }, [theme]);
     return (
         <ThemeProvider>
             <html lang="en" className={`antialiased ${theme}`}>
