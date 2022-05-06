@@ -10,6 +10,10 @@ import { getCookieTheme, setCookieTheme, ThemeProvider } from '~/libs/themeConte
 export const links: LinksFunction = () => {
     return [
         {
+            rel: 'preload',
+            href: 'https://d3requdwnyz98t.cloudfront.net/assets/GTWalsheimPro/GTWalsheimPro-Regular-ba8d1cf5a1ba4e30f43beb5dfa124156c2e3eb639b5f937f19b5029a1c4b2bac.woff2',
+        },
+        {
             rel: 'icon',
             href: '/images/favicon.ico',
             type: 'image/png',
