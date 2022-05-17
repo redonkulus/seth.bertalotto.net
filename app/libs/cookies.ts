@@ -3,7 +3,7 @@ import { COOKIE_NAME, Theme } from '~/libs/const';
 
 // Create a cookie to track color scheme state
 export const themeCookie = createCookie(COOKIE_NAME, {
-    expires: new Date(Date.now() + 100_000),
+    expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
 });
 
 // Helper function to get the value of the color scheme cookie
