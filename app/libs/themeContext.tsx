@@ -11,27 +11,6 @@ type ModeContext = {
     setTheme: (theme: string) => void;
 };
 
-const COOKIE_NAME = 'theme';
-
-export const getCookieTheme = (cookie: string) => {
-    if (cookie) {
-        const cookieParts = cookie.split(';');
-        for (let cookiePair of cookieParts) {
-            const [name, value] = cookiePair.split('=');
-            if (name?.trim() === COOKIE_NAME && value) {
-                return {
-                    theme: value,
-                };
-            }
-        }
-    }
-    return {};
-};
-
-export const setCookieTheme = (value: string) => {
-    window.document.cookie = `${COOKIE_NAME}=${value}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-};
-
 export const ThemeContext: Context<ModeContext> = createContext({} as any);
 
 export const ThemeProvider = ({ children }: Props) => {
@@ -48,9 +27,6 @@ export const ThemeProvider = ({ children }: Props) => {
 
         // update React theme state
         rawSetTheme(value);
-
-        // set cookie for server to retrieve later
-        setCookieTheme(value);
 
         // update class on root element
         if (value === Theme.dark) {
