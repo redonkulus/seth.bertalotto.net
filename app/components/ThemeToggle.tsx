@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Form } from 'remix';
 import { ThemeContext } from '~/libs/themeContext';
 import { Theme } from '~/libs/const';
 
@@ -25,7 +26,7 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
         return null;
     }
     return (
-        <form
+        <Form
             method="post"
             onSubmit={(ev) => {
                 setTheme(theme === Theme.light ? Theme.dark : Theme.light);
@@ -34,6 +35,6 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
             <button type="submit" className={`${className} w-[32px]`} title={`Toggle ${theme} mode`}>
                 {theme === Theme.dark ? <IconSun /> : <IconMoon />}
             </button>
-        </form>
+        </Form>
     );
 }
