@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import type { Context, ReactNode } from 'react';
 import { Theme } from '~/libs/const';
+import * as gtag from '~/libs/gtags.client';
 
 type Props = {
     children: ReactNode;
@@ -34,6 +35,12 @@ export const ThemeProvider = ({ children }: Props) => {
         } else {
             root.classList.replace(Theme.dark, value);
         }
+
+        // send beacon to ga
+        gtag.event({
+            action: 'theme',
+            label: value,
+        });
     };
     return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
