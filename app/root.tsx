@@ -1,4 +1,15 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, redirect, useLoaderData } from 'remix';
+import { useEffect } from 'react';
+import {
+    Links,
+    LiveReload,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    redirect,
+    useLoaderData,
+    useLocation,
+} from 'remix';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import type { HeadersFunction, LoaderFunction, LinksFunction, MetaFunction, ActionFunction } from 'remix';
@@ -6,6 +17,30 @@ import { META_NAME, META_POSITION, META_TITLE, Theme } from '~/libs/const';
 import styles from '../build/tailwind.css';
 import { ThemeProvider } from '~/libs/themeContext';
 import { getTheme, themeCookie } from '~/libs/cookies';
+import * as gtag from '~/libs/gtags.client';
+
+const gaTrackingId = 'UA-3098437-3';
+const GoogleAnalyticsScript = () => {
+    return process.env.NODE_ENV === 'development' || !gaTrackingId ? null : (
+        <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+            <script
+                async
+                id="gtag-init"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${gaTrackingId}', {
+                            page_path: window.location.pathname,
+                        });
+                    `,
+                }}
+            />
+        </>
+    );
+};
 
 export const links: LinksFunction = () => {
     return [
@@ -62,7 +97,15 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function App() {
+    const location = useLocation();
     const { theme } = useLoaderData();
+
+    useEffect(() => {
+        if (gaTrackingId?.length) {
+            gtag.pageview(location.pathname, gaTrackingId);
+        }
+    }, [location]);
+
     return (
         <ThemeProvider>
             <html lang="en" className={`antialiased ${theme}`}>
@@ -71,6 +114,7 @@ export default function App() {
                     <Links />
                 </head>
                 <body>
+                    <GoogleAnalyticsScript />
                     <Header />
                     <main>
                         <Outlet />
