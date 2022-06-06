@@ -19,7 +19,7 @@ import { ThemeProvider } from '~/libs/themeContext';
 import { getTheme, themeCookie } from '~/libs/cookies';
 import * as gtag from '~/libs/gtags.client';
 
-const gaTrackingId = 'UA-3098437-3';
+const gaTrackingId = 'G-6MRPXX727F';
 const GoogleAnalyticsScript = () => {
     return process.env.NODE_ENV === 'development' || !gaTrackingId ? null : (
         <>
