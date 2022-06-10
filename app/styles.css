@@ -4,8 +4,7 @@
 
 @font-face {
     font-family: 'GTWalsheimPro';
-    src: url('/fonts/GTWalsheimPro-Regular.woff2')
-        format('woff2');
+    src: url('/fonts/GTWalsheimPro-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: fallback;
