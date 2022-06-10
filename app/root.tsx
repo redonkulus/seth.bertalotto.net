@@ -48,7 +48,7 @@ export const links: LinksFunction = () => {
             as: 'font',
             crossOrigin: 'anonymous',
             rel: 'preload',
-            href: 'https://d3requdwnyz98t.cloudfront.net/assets/GTWalsheimPro/GTWalsheimPro-Regular-ba8d1cf5a1ba4e30f43beb5dfa124156c2e3eb639b5f937f19b5029a1c4b2bac.woff2',
+            href: '/fonts/GTWalsheimPro-Regular.woff2',
         },
         {
             rel: 'icon',

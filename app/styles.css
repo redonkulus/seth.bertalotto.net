@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'GTWalsheimPro';
-    src: url('https://d3requdwnyz98t.cloudfront.net/assets/GTWalsheimPro/GTWalsheimPro-Regular-ba8d1cf5a1ba4e30f43beb5dfa124156c2e3eb639b5f937f19b5029a1c4b2bac.woff2')
+    src: url('/fonts/GTWalsheimPro-Regular.woff2')
         format('woff2');
     font-weight: normal;
     font-style: normal;
