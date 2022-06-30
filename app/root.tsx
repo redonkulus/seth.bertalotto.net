@@ -1,14 +1,8 @@
 import { useEffect } from 'react';
 
-import type {
-    ActionFunction,
-    HeadersFunction,
-    LinksFunction,
-    LoaderFunction,
-    MetaFunction,
-} from "@remix-run/node";
+import type { ActionFunction, HeadersFunction, LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
 
-import { redirect } from "@remix-run/node";
+import { redirect } from '@remix-run/node';
 
 import {
     Links,
@@ -19,7 +13,7 @@ import {
     ScrollRestoration,
     useLoaderData,
     useLocation,
-} from "@remix-run/react";
+} from '@remix-run/react';
 
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';

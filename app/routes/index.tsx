@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from '@remix-run/react';
 import { Comfortable } from '~/components/Layouts';
 
 const randomItem = (arr: any) => arr[Math.floor(Math.random() * arr.length)];

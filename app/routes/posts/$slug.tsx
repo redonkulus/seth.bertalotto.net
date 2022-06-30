@@ -1,5 +1,5 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
 import { getPost } from '~/models/post.server';
 import invariant from 'tiny-invariant';
 import { Comfortable } from '~/components/Layouts';
