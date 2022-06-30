@@ -1,4 +1,9 @@
 import { useEffect } from 'react';
+
+import type { ActionFunction, HeadersFunction, LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
+
+import { redirect } from '@remix-run/node';
+
 import {
     Links,
     LiveReload,
@@ -6,13 +11,12 @@ import {
     Outlet,
     Scripts,
     ScrollRestoration,
-    redirect,
     useLoaderData,
     useLocation,
-} from 'remix';
+} from '@remix-run/react';
+
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import type { HeadersFunction, LoaderFunction, LinksFunction, MetaFunction, ActionFunction } from 'remix';
 import { META_NAME, META_POSITION, META_TITLE, Theme } from '~/libs/const';
 import styles from '../build/tailwind.css';
 import { ThemeProvider } from '~/libs/themeContext';

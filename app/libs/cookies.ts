@@ -1,4 +1,4 @@
-import { createCookie } from 'remix';
+import { createCookie } from '@remix-run/node';
 import { COOKIE_NAME, Theme } from '~/libs/const';
 
 // Create a cookie to track color scheme state
