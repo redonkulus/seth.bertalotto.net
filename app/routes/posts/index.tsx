@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'remix';
+import { Link, useLoaderData } from "@remix-run/react";
 import { getPosts } from '~/models/post.server';
 import type { Post } from '~/models/post.server';
 import { Comfortable } from '~/components/Layouts';
