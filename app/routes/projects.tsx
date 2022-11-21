@@ -11,7 +11,7 @@ const projects = [
     {
         desc: 'Simple web application for English language learners to practice letters, numbers and sight words.',
         image: '/images/projects/flashcards.jpg',
-        link: 'http://simplyflashcards.org/',
+        link: 'https://redonkulus.github.io/flashcards/',
         name: 'Simply Flashcards',
         role: 'Creator',
         tech: ['html', 'css', 'javascript'],
