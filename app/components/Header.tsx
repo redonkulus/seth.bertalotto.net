@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link } from '@remix-run/react';
-import { useMatches } from '@remix-run/react';
+import { Link, useMatches } from '@remix-run/react';
 import classnames from 'classnames';
 import { META_NAME, META_POSITION } from '~/libs/const';
 import ThemeToggle from '~/components/ThemeToggle';
