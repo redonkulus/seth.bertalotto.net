@@ -2,9 +2,7 @@ import { createCookie } from '@remix-run/node';
 import { COOKIE_NAME, Theme } from '~/libs/const';
 
 // Create a cookie to track color scheme state
-export const themeCookie = createCookie(COOKIE_NAME, {
-    expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-});
+export const themeCookie = createCookie(COOKIE_NAME);
 
 // Helper function to get the value of the color scheme cookie
 export const getThemeToken = async (request: Request) => await themeCookie.parse(request.headers.get('Cookie'));
