@@ -66,19 +66,23 @@ export const links: LinksFunction = () => {
     ];
 };
 
-export const meta: MetaFunction = () => ({
-    charset: 'utf-8',
-    'fb:admins': '733151261',
-    'google-site-verification': '9b4WmUk8h_ZithBGF5LGtwnoOuSDHFPmPTCtBhD8EDA',
-    'og:title': META_NAME,
-    'og:type': 'public_figure',
-    'og:url': 'https://seth.bertalotto.net',
-    'og:description': META_POSITION,
-    'og:image': 'https://seth.bertalotto.net/images/me.png',
-    'og:site_name': META_NAME,
-    title: META_TITLE,
-    viewport: 'width=device-width,initial-scale=1',
-});
+export const meta: MetaFunction = () => [
+    {
+        charset: 'utf-8',
+    },
+    {
+        'fb:admins': '733151261',
+    },
+    { 'google-site-verification': '9b4WmUk8h_ZithBGF5LGtwnoOuSDHFPmPTCtBhD8EDA' },
+    { property: 'og:title', content: META_NAME },
+    { property: 'og:type', content: 'public_figure' },
+    { property: 'og:url', content: 'https://seth.bertalotto.net' },
+    { property: 'og:description', content: META_POSITION },
+    { property: 'og:image', content: 'https://seth.bertalotto.net/images/me.png' },
+    { property: 'og:site_name', content: META_NAME },
+    { title: META_TITLE },
+    { viewport: 'width=device-width,initial-scale=1' },
+];
 
 export const headers: HeadersFunction = () => ({
     'Accept-CH': 'Sec-CH-Prefers-Color-Scheme',
@@ -89,7 +93,9 @@ export const action: ActionFunction = async ({ request }) => {
     const newTheme = theme === Theme.light ? Theme.dark : Theme.light;
     return redirect(request.url, {
         headers: {
-            'Set-Cookie': await themeCookie.serialize(newTheme),
+            'Set-Cookie': await themeCookie.serialize(newTheme, {
+                expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+            }),
         },
     });
 };
