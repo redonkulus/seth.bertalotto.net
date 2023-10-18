@@ -3,8 +3,8 @@
  */
 module.exports = {
     ignoredRouteFiles: ['.*'],
-    serverMainFields: ["main", "module"],
-    serverModuleFormat: "cjs",
-    serverPlatform: "node",
+    serverMainFields: ['main', 'module'],
+    serverModuleFormat: 'cjs',
+    serverPlatform: 'node',
     serverMinify: false,
 };
