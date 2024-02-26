@@ -32,7 +32,7 @@
         "marked": "^12.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "tiny-invariant": "^1.3.1"
+        "tiny-invariant": "^1.3.3"
     },
     "devDependencies": {
         "@remix-run/dev": "^2.6.0",
