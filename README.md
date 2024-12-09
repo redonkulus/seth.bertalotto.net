@@ -4,9 +4,9 @@ A simple profile site about me.
 
 ## Technology Used
 
--   [Remix](https://remix.run/docs) - Experimenting with Remix for building a simple React based app
--   [TypeScript](https://www.typescriptlang.org/) - For solid Type support
--   [TailwindCSS](https://tailwindcss.com/) - Robust Atomic CSS framework
+- [Remix](https://remix.run/docs) - Experimenting with Remix for building a simple React based app
+- [TypeScript](https://www.typescriptlang.org/) - For solid Type support
+- [TailwindCSS](https://tailwindcss.com/) - Robust Atomic CSS framework
 
 ## Development
 
